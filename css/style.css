@@ -301,8 +301,62 @@ header img {
   font-size: 12px;
 }
 .main .book-main {
-  padding: 10px;
+  margin: 10px;
+  padding-bottom: 10px;
+  overflow: hidden;
+  border-bottom: 1px solid #898989;
+  position: relative;
 }
 .book-main .bookcover {
+  float: left;
   width: 120px;
+}
+.book-main .bookinfo {
+  margin-left: 130px;
+  margin-top: 50px;
+}
+.book-main .bookinfo .bookname {
+  font-size: 18px;
+  font-weight: bold;
+}
+.book-main .bookinfo .bookauthor {
+  font-size: 14px;
+}
+.main .book-des {
+  margin: 10px;
+  border-bottom: 1px solid #898989;
+}
+.main .book-content {
+  margin: 10px;
+  margin-bottom: 80px;
+}
+.main .title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.main .describe {
+  color: #898989;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.book-content ul {
+  color: #898989;
+  font-size: 14px;
+}
+.read-btns {
+  position: absolute;
+  bottom: 50px;
+}
+.btn {
+  background-color: #df6e78;
+  color: #fff;
+  border: 0px solid #fff;
+}
+.read-btn {
+  display: inline-block;
+  width: 50px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 12px;
 }
