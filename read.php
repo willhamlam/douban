@@ -7,8 +7,9 @@
 	<meta name="viewport" content="initial-scale=1">
 </head>
 <body>
-	<header>
-		我读过的书
+	<header class="read">
+		<img src="img/read.png" alt="">
+		<span>我读过的书</span>
 	</header>
 	<div class="main">
 		<ul class="my-read-list">
