@@ -4,7 +4,10 @@
 	<meta charset="UTF-8">
 	<title>Search-List</title>
 	<link rel="stylesheet" href="css/style.css">
-	<meta name="viewport" content="initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
 </head>
 <body data-id="<?php echo $_GET['id']; ?>">
 	<header class="search-list">
