@@ -40,6 +40,7 @@
 					$('.s-books-list').append(html);
 				}
 
+				var douban = new DOUBAN();
 				douban.book.search({
 					q: $('body').data('keyword'),
 					count: 20,
