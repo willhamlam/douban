@@ -42,7 +42,7 @@
 			console.log(param);
 			$.ajax({
 				type: 'POST',
-				url: '../douban_webapp/lib/handle.php',
+				url: '../douban/lib/handle.php',
 				data: param,
 				dataType: 'json',
 				success: function(res){
