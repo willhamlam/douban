@@ -23,9 +23,9 @@
 				<span class="bookname"><%= book['title'] %></span>
 				<p class="bookauthor"><%= book['author'][0] %></p>
 				<div class="read-btns">
-					<a class="btn read-btn toread <% if (book['current_user_collection']['status'] == 'wish') {%>disabled<%}%>" data-status="wish" href="">想读</a>
-					<a class="btn read-btn reading  <% if (book['current_user_collection']['status'] == 'reading') {%>disabled<%}%>" href="" data-status="reading">在读</a>
-					<a class="btn read-btn read  <% if (book['current_user_collection']['status'] == 'read') {%>disabled<%}%>" href="" data-status="read">已读</a>
+					<a class="btn read-btn toread <% if (book['current_user_collection'] && book['current_user_collection']['status'] == 'wish') {%>disabled<%}%>" data-status="wish" href="">想读</a>
+					<a class="btn read-btn reading  <% if (book['current_user_collection'] && book['current_user_collection']['status'] == 'reading') {%>disabled<%}%>" href="" data-status="reading">在读</a>
+					<a class="btn read-btn read  <% if (book['current_user_collection'] && book['current_user_collection']['status'] == 'read') {%>disabled<%}%>" href="" data-status="read">已读</a>
 				</div>
 			</div>
 		</div>
@@ -75,7 +75,7 @@
 						status: status,
 						callback: function(result){
 							console.log(result);
-							window.location.reload();
+							// window.location.reload();
 						}
 					});
 
