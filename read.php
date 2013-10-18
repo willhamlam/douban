@@ -1,8 +1,16 @@
 <?php include('header.tpl'); ?>
 <body data-cat="<?php echo $_GET['cat']; ?>">
-	<header class="read">
+	<header class="read search-list">
 		<img src="img/read.png" alt="">
-		<span>我读过的书</span>
+		<?php 
+			$title = array(
+				'reading' => "正在读的书",
+				'read' => "已读的书",
+				'wish' => "希望读的书"
+			);
+		 ?>
+		<span><?php echo $title[$_GET['cat']]; ?></span>
+		<?php include('form.php'); ?>
 	</header>
 	<div class="main">
 		<ul class="s-books-list">

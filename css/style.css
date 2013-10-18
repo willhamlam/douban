@@ -265,7 +265,7 @@ header.search-list {
   font-size: 14px;
 }
 header.read {
-  height: 40px;
+  height: auto;
   background-color: #cca98f;
   color: #fff;
 }
@@ -346,7 +346,8 @@ header img {
 }
 .read-btns {
   position: absolute;
-  bottom: 50px;
+  bottom: 0px;
+  padding: 10px 3px;
 }
 .btn {
   background-color: #df6e78;
@@ -356,7 +357,11 @@ header img {
 .read-btn {
   display: inline-block;
   width: 50px;
+  padding: 5px 8px;
   line-height: 20px;
   text-align: center;
   font-size: 12px;
+}
+.read-btn.disabled {
+  background-color: #ddd;
 }

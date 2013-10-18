@@ -14,15 +14,15 @@
 		
 	</div>
 	<script  id="book" type="text/html">
-		<div class="book-main">
+		<div class="book-main" data-id="<%= book['id'] %>">
 			<img class="bookcover" src="<%= book['image'] %>" alt="">
 			<div class="bookinfo">
 				<span class="bookname"><%= book['title'] %></span>
 				<p class="bookauthor"><%= book['author'][0] %></p>
 				<div class="read-btns">
-					<a class="btn read-btn toread" href="">想读</a>
-					<a class="btn read-btn reading" href="">在读</a>
-					<a class="btn read-btn read" href="">已读</a>
+					<a class="btn read-btn toread <% if (book['current_user_collection']['status'] == 'wish') {%>disabled<%}%>" data-status="wish" href="">想读</a>
+					<a class="btn read-btn reading  <% if (book['current_user_collection']['status'] == 'reading') {%>disabled<%}%>" href="" data-status="reading">在读</a>
+					<a class="btn read-btn read  <% if (book['current_user_collection']['status'] == 'read') {%>disabled<%}%>" href="" data-status="read">已读</a>
 				</div>
 			</div>
 		</div>
@@ -44,6 +44,10 @@
 		(function(window, $){
 
 			$(function(){
+				$('body').on('click', '.disabled', function(e){
+					e.preventDefault();
+				});
+
 				var user;
 				var renderBook = function(data){
 					var html = template.render('book', {book:data});
@@ -59,6 +63,21 @@
 					console.log(book);
 					renderBook(book);
 				});
+
+				$('body').on('click', '.read-btn', function(e){
+					e.preventDefault();
+					var status = $(this).data('status');
+					douban.book.editFavor({
+						id: $('body').find('.book-main').data('id'),
+						status: status,
+						callback: function(result){
+							console.log(result);
+							window.location.reload();
+						}
+					});
+
+				});
+
 			});
 
 		})(window, Zepto, DOUBAN);

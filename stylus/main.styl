@@ -97,7 +97,7 @@ header.search-list
 
 // my-read-list
 header.read
-	height 40px
+	height auto
 	background-color #CCA98F
 	color #ffffff
 
@@ -179,7 +179,8 @@ header img
 
 .read-btns
 	position absolute
-	bottom 50px
+	bottom 0px
+	padding 10px 3px
 
 .btn
 	background-color #DF6E78
@@ -189,6 +190,10 @@ header img
 .read-btn
 	display inline-block
 	width 50px
+	padding 5px 8px
 	line-height 20px
 	text-align center
 	font-size 12px
+
+.read-btn.disabled
+	background-color #ddd
