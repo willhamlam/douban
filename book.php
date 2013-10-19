@@ -17,7 +17,7 @@
 		
 	</div>
 	<script  id="book" type="text/html">
-		<div class="book-main" data-id="<%= book['id'] %>">
+		<div class="book-main" data-id="<%= book['id'] %>" data-relation=" <% if (!book['current_user_collection']) {%>0<%}else{%>1<%}%>">
 			<img class="bookcover" src="<%= book['image'] %>" alt="">
 			<div class="bookinfo">
 				<span class="bookname"><%= book['title'] %></span>
@@ -26,6 +26,10 @@
 					<a class="btn read-btn toread <% if (book['current_user_collection'] && book['current_user_collection']['status'] == 'wish') {%>disabled<%}%>" data-status="wish" href="">想读</a>
 					<a class="btn read-btn reading  <% if (book['current_user_collection'] && book['current_user_collection']['status'] == 'reading') {%>disabled<%}%>" href="" data-status="reading">在读</a>
 					<a class="btn read-btn read  <% if (book['current_user_collection'] && book['current_user_collection']['status'] == 'read') {%>disabled<%}%>" href="" data-status="read">已读</a>
+					<% if (book['current_user_collection']) {%>
+						<a class="btn read-btn delete"  href="">删除</a>
+					<%}%>
+
 				</div>
 			</div>
 		</div>
@@ -73,15 +77,32 @@
 
 				$('body').on('click', '.read-btn', function(e){
 					e.preventDefault();
-					var status = $(this).data('status');
-					douban.book.editFavor({
-						id: $('body').find('.book-main').data('id'),
-						status: status,
-						callback: function(result){
+					if($(this).hasClass('delete')){
+						douban.book.deleteFavor($('body').find('.book-main').data('id'), function(result){
 							console.log(result);
 							window.location.reload();
-						}
-					});
+						});
+					}
+					var status = $(this).data('status');
+					if(!$('.book-main').data('relation')){
+						douban.book.addFavor({
+							id: $('body').find('.book-main').data('id'),
+							status: status,
+							callback: function(result){
+								console.log(result);
+								window.location.reload();
+							}
+						});
+					}else{
+						douban.book.editFavor({
+							id: $('body').find('.book-main').data('id'),
+							status: status,
+							callback: function(result){
+								console.log(result);
+								window.location.reload();
+							}
+						});
+					}
 
 					$('body').on('click', '.book-content .title', function(){
 						console.log('hello');
