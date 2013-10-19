@@ -13,6 +13,7 @@
 		<?php include('form.php'); ?>
 	</header>
 	<div class="main">
+		<img src="img/loader.gif" class="loader" height="16" width="16" alt="">
 		<ul class="s-books-list">
 		</ul>
 	</div>
@@ -39,6 +40,7 @@
 				var renderBook = function(data){
 					console.log(data);
 					var html = template.render('book', data);
+					$('.loader').hide();
 					$('.s-books-list').append(html);
 				}
 

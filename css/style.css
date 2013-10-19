@@ -367,3 +367,9 @@ header img {
 .read-btn.disabled {
   background-color: #ddd;
 }
+.loader {
+  position: relative;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: 50%;
+}
