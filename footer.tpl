@@ -21,8 +21,9 @@
 				}else{
 					loginUrl = "https://www.douban.com/service/auth2/auth?client_id=01c6485c1e6e80b30552d9145b4b8219&client_secret=ab455a25196154fa&redirect_uri=http://203.195.182.36/bonstu/project/douban/callback.php&response_type=token&scope=douban_basic_common,book_basic_r,book_basic_w"
 				}
-				
+
 				$('.login-btn').attr('href', loginUrl);
+				console.log(db.login);
 				if(db.login){ $('.logined').show(); }else{ $('.notLogin').show(); }
 			});
 		})(window, Zepto);

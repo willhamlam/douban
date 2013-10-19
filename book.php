@@ -35,9 +35,9 @@
 		</div>
 		<div class="book-content">
 			<div class="title">目录</div>
-			<ul class="contents">
+			<pre class="contents ">
 				<%= book['catalog'] %>
-			</ul>
+			</pre>
 		</div>
 	</script>
 	<script src="js/zepto.js"></script>
@@ -53,6 +53,10 @@
 
 				var user;
 				var renderBook = function(data){
+					if(data.msg && data.msg == 'access_token_has_expired'){
+						window.location.href = "logout.php";
+					}
+					data.catalog = $.trim(data.catalog);
 					var html = template.render('book', {book:data});
 					$('.main').append(html);
 				}
@@ -75,8 +79,13 @@
 						status: status,
 						callback: function(result){
 							console.log(result);
-							// window.location.reload();
+							window.location.reload();
 						}
+					});
+
+					$('body').on('click', '.book-content .title', function(){
+						console.log('hello');
+						$('.contents').show();
 					});
 
 				});

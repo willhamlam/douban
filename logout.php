@@ -6,6 +6,7 @@ unset($_SESSION['login']);
  ?>
 
  <script>
- 	window.localstorage = {};
+ 	window.localStorage.removeItem('login');
+ 	window.localStorage.removeItem('db_token');
  	window.location.href = "index.php";
  </script>

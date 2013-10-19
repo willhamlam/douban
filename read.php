@@ -38,7 +38,11 @@
 
 			$(function(){
 				var renderBook = function(data){
-					console.log(data);
+					console.log(data.msg);
+					if(data.msg && data.msg.indexOf('access_token_has_expired') !== -1 ){
+						window.location.href = "logout.php";
+						return false;
+					}
 					var html = template.render('book', data);
 					$('.loader').hide();
 					$('.s-books-list').append(html);
