@@ -7,4 +7,5 @@
 			<?php include('form.php'); ?>
 		</div>
 	</div>
+	<script src="js/zepto.js"></script>
 	<?php include('footer.tpl'); ?>

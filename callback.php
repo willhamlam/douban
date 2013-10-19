@@ -6,10 +6,11 @@
 	// console.log(token);
 	var db = localStorage;
 	db.db_token = token;
+	db.login = 1;
 	var douban = new DOUBAN();
 
 	douban.user.getCurrent(function(info){
 		db.userInfo = JSON.stringify(info);
-		window.location.href = 'token.php?token=' + token;
+		window.location.href = 'index.php';
 	});
  </script>
